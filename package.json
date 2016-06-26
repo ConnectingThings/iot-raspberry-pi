@@ -1,0 +1,8 @@
+{
+  "name": "Raspberry pi Dht project",
+  "repository": "https://github.com/ConnectingThings/rpi-examples",
+  "dependencies": {    
+    "mqtt": "*",
+    "node-dht-sensor": "*"
+  }
+}
