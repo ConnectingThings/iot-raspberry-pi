@@ -11,26 +11,32 @@ var client = mqtt.connect({
 
 var sensor = {
     initialize: function () {
-        return sensorLib.initialize(22, 4);
+        return sensorLib.initialize(11, 4);
     },
-    read: function () {
+    readTemperature: function () {
         var readout = sensorLib.read();
-        var temp =  readout.temperature.toFixed(2) ;
-        var humidity = readout.humidity.toFixed(2);
-       
-        client.publish('/device/switch/key/1qaz2wsx', "{\"value\": \""+humidity+"\",\"tag\": \"humidity\"}");
-        client.publish('/device/switch/key/1qaz2wsx', "{\"value\": \""+temp+"\",\"tag\": \"temperature\"}");
-       
-        console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' +  'humidity: ' + readout.humidity.toFixed(2) + '%');
+        var temp =  readout.temperature.toFixed(0);
+        
+        client.publish('/device/xxxx/key/xxxx', "{\"value\": \""+temp+"\",\"tag\": \"temperature\"}");
        
         setTimeout(function () {
-            sensor.read();
-        }, 2000);
+            sensor.readHumidity();
+        }, 5000);
+    },
+    readHumidity: function () {
+        var readout = sensorLib.read();
+        var humidity = readout.humidity.toFixed(0) ;
+       
+        client.publish('/device/xxxx/key/xxxx', "{\"value\": \""+humidity+"\",\"tag\": \"humidity\"}");
+       
+        setTimeout(function () {
+            sensor.readTemperature();
+        }, 5000);
     }
 };
 
 if (sensor.initialize()) {
-    sensor.read();
+    sensor.readTemperature();
 } else {
     console.warn('Failed to initialize sensor');
 }

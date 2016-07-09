@@ -1,7 +1,8 @@
 {
   "name": "raspberry-dht",
   "repository": "https://github.com/ConnectingThings/rpi-examples",
-  "dependencies": {    
-    "mqtt": "*"
+  "dependencies": {
+    "mqtt": "*",
+    "rpi-dht-sensor": "^0.1.1"
   }
 }
