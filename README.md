@@ -1,4 +1,4 @@
-Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/ConnectingThings/Hardware)
+[![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/ConnectingThings/Hardware)
 # rpi-examples
 
 ###Install node.js
